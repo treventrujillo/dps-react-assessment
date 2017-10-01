@@ -36,8 +36,13 @@ Committed Brewery Component: 12:30 P.M.
   function and with setting state but I couldn't figure it out. I can set the axios get response to the component's state, so this isn't completely impeding on my progress with the assessment's objectives but it's still something that I want to figure out. 
   This is taking me a while to complete because I am trying to learn concepts, such as rendering nested values above, and I'm spending most of my time googling and playing with the React console. The concepts of setting state to components, filling the state with data from a server request or local database, and rendering out that data are concrete in my mind. I thought I understood lifecycle methods better but dealing with asynchronous data, if that is the problem, made me realize that I need to read up on them more. 
 
-Breaked at 12:30 P.M.
+Breaked at 12:30 A.M. 
 
 Resumed 1:30 A.M.
 
-Committed Redux Thunk: 2:30 A.M.
+Breaked & Committed Redux Thunk: 2:30 A.M.
+
+Resumed 3:00 P.M. 
+
+Committed Re-Refactor of Redux 5:30 P.M.
+  After messing around with redux thunk I could not get it to work the way I wanted, and I don't think it would solve my problem anyway.

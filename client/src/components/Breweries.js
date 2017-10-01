@@ -4,10 +4,14 @@ import axios from 'axios';
 import {
   Grid,
   Image,
+  Loader,
+  Dimmer,
+  Segment,
+  Divider,
 } from 'semantic-ui-react';
 
 class Breweries extends React.Component {
-  state = { loaded: false }
+  state = { breweries: [], loadState: false }
 
   componentDidMount() {
     axios.get('/api/all_breweries')
@@ -15,30 +19,41 @@ class Breweries extends React.Component {
         let { data } = res;
         this.setState({ breweries: data.entries })
       })
+      .then( this.loadState() );
   }
 
-  breweries = () => {
-    const { breweries } = this.state;
-    
-    return breweries.map( brewery =>
-      <Grid.Column
-        key={brewery.id}
-      >
-        <h1>{brewery.name}</h1>
-        <h3><a href={brewery.website}>{brewery.website}</a></h3>
-        <Image src={brewery.images}/>
-      </Grid.Column>
-    )
+  loadState = () => {
+    this.setState({ loadState: true })
   }
 
   render () {
-    return (
-      <Grid columns={3} divided>
-        <Grid.Row>
-          { this.breweries() }
-        </Grid.Row>
-      </Grid>
-    )
+    let { breweries } = this.state;
+    if (this.state.loadState) {
+      return (
+        <Grid columns={3} divided>
+          <Grid.Row>
+            { breweries.map( brewery => 
+              <Grid.Column
+                key={brewery.id}
+              >
+                <Divider />
+                <h1>{brewery.name}</h1>
+                <h3><a href={brewery.website}>{brewery.website}</a></h3>
+              </Grid.Column>
+              )
+            }
+          </Grid.Row>
+        </Grid>
+      )
+    } else {
+      return (
+        <Segment>
+          <Dimmer active>
+            <Loader />
+          </Dimmer>
+        </Segment>
+      )
+    }
   }
 }
 
