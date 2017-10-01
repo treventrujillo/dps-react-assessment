@@ -10,16 +10,17 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 class Beers extends React.Component {
-  state = { beers: [] }
+  state = { beers: [], beerGlass: [] }
 
   componentDidMount() {
     axios.get('/api/all_beers')
       .then( res => {
         let { data } = res;
-        this.setState({ beers: data.entries})
+        let { glass } = res.data.entries[0].glass;
+        this.setState({ beers: data.entries, beerGlass: glass })
       })
   }
-  
+
   render() {
     let { beers } = this.state;
     return (
@@ -44,6 +45,9 @@ class Beers extends React.Component {
             </Card.Meta>
               <p>{ beer.description }</p>
             </Card.Description>
+            <Card.Content extra>
+
+            </Card.Content>
             </Card>
           )}
         </Card.Group>
