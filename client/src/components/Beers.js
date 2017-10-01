@@ -10,14 +10,13 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 class Beers extends React.Component {
-  state = { beers: [], beerGlass: [] }
+  state = { beers: [] }
 
   componentDidMount() {
     axios.get('/api/all_beers')
       .then( res => {
         let { data } = res;
-        let { glass } = res.data.entries[0].glass;
-        this.setState({ beers: data.entries, beerGlass: glass })
+        this.setState({ beers: data.entries })
       })
   }
 
