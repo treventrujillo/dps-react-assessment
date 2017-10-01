@@ -7,7 +7,7 @@ import {
 } from 'semantic-ui-react';
 
 class Breweries extends React.Component {
-  state = { breweries: [] }
+  state = { loaded: false }
 
   componentDidMount() {
     axios.get('/api/all_breweries')
