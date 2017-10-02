@@ -46,3 +46,10 @@ Resumed 3:00 P.M.
 
 Committed Re-Refactor of Redux 5:30 P.M.
   After messing around with redux thunk I could not get it to work the way I wanted, and I don't think it would solve my problem anyway.
+
+Breaked 6:00 P.M.
+
+Resumed 7:00 P.M.
+
+Committed Pagination of Beers and Breweries component 10:00 P.M.
+  I tried to use a different pagination library but I could get none of them to work so I eventually just used Infinite Scroller and it functioned correctly.

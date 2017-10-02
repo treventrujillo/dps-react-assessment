@@ -19,7 +19,7 @@ injectGlobal`
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <App perPage={10} />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
